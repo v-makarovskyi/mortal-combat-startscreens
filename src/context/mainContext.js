@@ -9,9 +9,9 @@ export const MainContextProvider = ({ children }) => {
     })
     const [activeScreen, setActiveScreen] = useState(0)
 
-    const selectPlayer = ({ character, characterNumber=1 }) => {
+    const selectPlayer = useCallback((character, characterNumber=1 ) => {
         setSelectedPlayers((prev) => ({...prev, [`player_${characterNumber}`]: character}))
-    }
+    }, [])
 
     return (
         <MainContext.Provider value={{selectedPlayers, selectPlayer, activeScreen, setActiveScreen}}>
