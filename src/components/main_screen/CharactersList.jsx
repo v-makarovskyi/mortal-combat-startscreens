@@ -10,7 +10,7 @@ export default function CharactersList({ children }) {
     const [playerTwo, setPlayerTwo] = useState({index:1, isSelected: false})
     const characterColumns = 5
 
-   const selectCharacter = (item) => {
+   const selectCharacter = useCallback((item) => {
     if(playerTwo.isSelected) return
     let player_num = 1
     if(playerOne.isSelected) {
@@ -20,7 +20,35 @@ export default function CharactersList({ children }) {
         setPlayerOne((prev) => ({...prev, isSelected: true}))
     }
     selectPlayer(item, player_num)
-   }
+   }, [playerOne, playerTwo, selectPlayer])
+
+   const keyHandler = useCallback((e) => {
+    if(playerTwo.isSelected) return
+    let index = !playerOne.isSelected ? playerOne.index : playerTwo.index
+    if(e.key === 'ArrowDown') {
+        index += characterColumns
+    } else if (e.key === 'ArrowUp') {
+        index -= characterColumns
+    } else if (e.key === 'ArrowLeft') {
+        index -= 1
+    } else if (e.key === 'ArrowRight') {
+        index += 1
+    } else if (e.key === 'Enter') {
+        selectCharacter(characters[index])
+    }
+    if(characters[index]) {
+        if(playerTwo.isSelected) {
+            setPlayerTwo((prev) => ({...prev, index: index}))
+        } else {
+            setPlayerOne((prev) => ({...prev, index: index}))
+        }
+    }
+   }, [playerOne, playerTwo, selectCharacter])
+
+   useEffect(() => {
+    document.addEventListener('keydown', keyHandler)
+    return () => document.removeEventListener('keydown', keyHandler)
+   }, [keyHandler])
 
   return (
     <>
