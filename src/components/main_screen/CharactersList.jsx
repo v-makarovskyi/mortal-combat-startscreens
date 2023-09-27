@@ -53,10 +53,14 @@ export default function CharactersList({ children }) {
   return (
     <>
         {
-            characters?.map((c, i) => (
+            characters?.map((character, index) => (
                 <CharacterItem 
-                    key={c.id}
-                    img={c.image_icon}
+                    key={character.id}
+                    img={character.image_icon}
+                    isActiveOne={playerOne.i === index}
+                    isActiveTwo={playerTwo.i === index}
+                    isSelectedOne={playerOne.isSelected}
+                    isSelectedTwo={playerTwo.isSelected}
                 />
             ))
         }
