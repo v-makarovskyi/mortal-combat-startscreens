@@ -50,6 +50,16 @@ export default function CharactersList({ children }) {
     return () => document.removeEventListener('keydown', keyHandler)
    }, [keyHandler])
 
+   useEffect(() => {
+    let timer
+    if(playerOne.isSelected && playerTwo.isSelected) {
+        timer = setTimeout(() => {
+            setActiveScreen(1)
+        }, 2000)
+    }
+    return () => clearTimeout(timer)
+   }, [playerOne, playerTwo, setActiveScreen])
+
   return (
     <>
         {
