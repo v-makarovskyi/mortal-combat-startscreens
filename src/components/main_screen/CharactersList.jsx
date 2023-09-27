@@ -6,8 +6,8 @@ import styles from './MainScreen.module.css'
 
 export default function CharactersList({ children }) {
     const {selectPlayer, setActiveScreen} = useContext(MainContext)
-    const [playerOne, setPlayerOne] = useState({index:0, isSelected: false})
-    const [playerTwo, setPlayerTwo] = useState({index:1, isSelected: false})
+    const [playerOne, setPlayerOne] = useState({i:0, isSelected: false})
+    const [playerTwo, setPlayerTwo] = useState({i:1, isSelected: false})
     const characterColumns = 5
 
    const selectCharacter = useCallback((item) => {
@@ -15,16 +15,16 @@ export default function CharactersList({ children }) {
     let player_num = 1
     if(playerOne.isSelected) {
         player_num = 2
-        setPlayerTwo((prev) => ({...prev, isSelected: true}))
+        setPlayerTwo((prev => ({...prev, isSelected: true})))
     } else {
-        setPlayerOne((prev) => ({...prev, isSelected: true}))
+        setPlayerOne((prev => ({...prev, isSelected: true})))
     }
     selectPlayer(item, player_num)
    }, [playerOne, playerTwo, selectPlayer])
 
    const keyHandler = useCallback((e) => {
     if(playerTwo.isSelected) return
-    let index = !playerOne.isSelected ? playerOne.index : playerTwo.index
+    let index = !playerOne.isSelected ? playerOne.i : playerTwo.i
     if(e.key === 'ArrowDown') {
         index += characterColumns
     } else if (e.key === 'ArrowUp') {
@@ -37,10 +37,10 @@ export default function CharactersList({ children }) {
         selectCharacter(characters[index])
     }
     if(characters[index]) {
-        if(playerTwo.isSelected) {
-            setPlayerTwo((prev) => ({...prev, index: index}))
+        if(playerOne.isSelected) {
+            setPlayerTwo((prev) => ({...prev, i: index}))
         } else {
-            setPlayerOne((prev) => ({...prev, index: index}))
+            setPlayerOne((prev) => ({...prev, i: index}))
         }
     }
    }, [playerOne, playerTwo, selectCharacter])
@@ -60,7 +60,7 @@ export default function CharactersList({ children }) {
                 />
             ))
         }
-        {children({ playerOne: characters[playerOne.index], playerTwo: characters[playerTwo.index] })}
+        {children({ playerOne: characters[playerOne.i], playerTwo: characters[playerTwo.i] })}
     </>
   )
 }
