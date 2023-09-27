@@ -1,0 +1,117 @@
+.mainScreen {
+  background-image: url(/public/characters/main_screen_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-style: italic;
+}
+
+.title {
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 0.5em 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.6em;
+  color: #ffffff;
+}
+
+.bottom_title {
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2em;
+  color: lightgray;
+  padding: 0.5em 0 1em;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.content img {
+  width: 100%;
+  height: 100%;
+}
+
+.character_item {
+  --color: red;
+  width: calc(100% / 5);
+  height: calc(100% / 3);
+  border: 0.8em solid rgb(48, 47, 47);
+  position: relative;
+}
+
+.character_item img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.character_item.active {
+  animation: flickering 1.1s ease-in infinite;
+}
+
+.character_item.selected_one {
+  border-color: var(--color);
+}
+
+@keyframes flickering {
+  0%,
+  100% {
+    border-color: rgb(48, 47, 47);
+  }
+  50% {
+    border-color: var(--color);
+  }
+}
+
+.player_1,
+.player_2 {
+  position: absolute;
+  bottom: 0;
+  width: 280px;
+  height: 500px;
+}
+
+.player_1 {
+  left: -230px;
+}
+
+.player_2 {
+  right: -230px;
+}
+
+.player_number {
+  position: absolute;
+  top: 2.1em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  font-size: 3em;
+  color: var(--color);
+}
+
+.player_number_anime {
+  animation: opasityAnime 1.1s ease-in infinite;
+}
+
+@keyframes opasityAnime {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
