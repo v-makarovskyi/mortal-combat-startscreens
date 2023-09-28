@@ -15,3 +15,12 @@ export const characters = [
     {id:14, image_icon:'ermac_icon.webp', image_large:'ermac_large.png'},
     {id:15, image_icon:'sindel_icon.webp', image_large:'sindel_large.png'},
 ]
+
+export const versusCodesSymbols = [
+    {id:1, key: 'symbol-1', position:'-100px -150px'},
+    {id:2, key: 'symbol-2', position:'-100px -150px'},
+    {id:3, key: 'symbol-3', position:'-100px -150px'},
+    {id:4, key: 'symbol-4', position:'-100px -150px'},
+    {id:5, key: 'symbol-5', position:'-100px -150px'},
+    {id:6, key: 'symbol-6', position:'-100px -150px'},
+]
