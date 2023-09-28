@@ -8,13 +8,14 @@ export default function CharacterItem({
   isSelectedOne,
   isSelectedTwo,
 }) {
+  
   return (
     <div
       className={
         (isActiveOne && !isSelectedOne) ||
         (isActiveTwo && !isSelectedTwo && isSelectedOne)
           ? `${styles.character_item} ${styles.active}`
-          : (isActiveOne && isSelectedOne) || (isSelectedOne && isActiveTwo)
+          : (isActiveOne && isSelectedOne) || (isActiveTwo && isSelectedTwo)
           ? `${styles.character_item} ${styles.selected_one}`
           : styles.character_item
       }
