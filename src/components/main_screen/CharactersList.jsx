@@ -74,7 +74,7 @@ export default function CharactersList({ children }) {
                 />
             ))
         }
-        {children({ playerOne: characters[playerOne.i], playerTwo: characters[playerTwo.i] })}
+        {children({ player_1: characters[playerOne.i], player_2: characters[playerTwo.i] })}
     </>
   )
 }
