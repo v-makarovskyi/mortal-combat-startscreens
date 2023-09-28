@@ -58,7 +58,7 @@ export default function CharactersList({ children }) {
         }, 2000)
     }
     return () => clearTimeout(timer)
-   }, [playerOne, playerTwo, setActiveScreen])
+   }, [playerOne, playerTwo, setActiveScreen]) 
 
   return (
     <>
