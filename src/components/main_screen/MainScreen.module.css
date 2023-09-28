@@ -40,10 +40,6 @@
   overflow: hidden;
 }
 
-.content img {
-  width: 100%;
-  height: 100%;
-}
 
 .character_item {
   --color: red;
@@ -54,6 +50,8 @@
 }
 
 .character_item img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -80,16 +78,22 @@
 .player_2 {
   position: absolute;
   bottom: 0;
-  width: 280px;
-  height: 500px;
+  width: 230px;
+  height: 400px;
+}
+
+.player_1 img,
+.player_2 img {
+  width: 100%;
+  height: 100%;
 }
 
 .player_1 {
-  left: -230px;
+  left: -200px;
 }
 
 .player_2 {
-  right: -230px;
+  right: -200px;
 }
 
 .player_number {
