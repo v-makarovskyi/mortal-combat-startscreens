@@ -17,10 +17,10 @@ export const characters = [
 ]
 
 export const versusCodesSymbols = [
-    {id:1, key: 'symbol-1', position:'-100px -150px'},
-    {id:2, key: 'symbol-2', position:'-100px -150px'},
-    {id:3, key: 'symbol-3', position:'-100px -150px'},
-    {id:4, key: 'symbol-4', position:'-100px -150px'},
-    {id:5, key: 'symbol-5', position:'-100px -150px'},
-    {id:6, key: 'symbol-6', position:'-100px -150px'},
+    {id:1, key: 'symbol-1', position:'5px 8px'},
+    {id:2, key: 'symbol-2', position:'9px -470px'},
+    {id:3, key: 'symbol-3', position:'-393px -155px'},
+    {id:4, key: 'symbol-4', position:'-398px -313px'},
+    {id:5, key: 'symbol-5', position:'-475px -155px'},
+    {id:6, key: 'symbol-6', position:'-557px -155px'},
 ]
