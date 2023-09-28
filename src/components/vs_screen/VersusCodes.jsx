@@ -16,14 +16,22 @@ const winnerCodes = ['311111', '321111', '112111']
 export default function VersusCodes() {
   const icons = REQUIRED_LETTERS.map((item) => ({ id: item, iconIdx: 0 }));
   const [selectedIcons, setSelectedIcons] = useState(icons);
-  const [code, setCode] = useState('')
- const sound = useRef(new Audio("/public/sound/mortal_kombat_sms.mp3"));
-
+  const [code, setCode] = useState(null)
+  
+ const sound = useRef(new Audio("/sound/mortal_kombat_sms.mp3"));
+  
+ useEffect(() => {
   const newCode = selectedIcons.map(item => versusCodesSymbols[item.iconIdx].id).join('')
+  
   if(winnerCodes.includes(newCode)) {
     setCode(newCode)
     sound.current.play()
+  } else if (code) {
+    setCode(null)
   }
+ }, [code, selectedIcons])
+
+  
 
   const keyDownHandler = useCallback(
     (e) => {
@@ -64,7 +72,8 @@ export default function VersusCodes() {
             ))
         }
       </div> 
-      <VersusCodesPopup code={code} />
+      {code !== null && <VersusCodesPopup code={code} />}
+      
     </Fragment>
   );
 }
