@@ -11,10 +11,19 @@ import VersusCodesItem from "./VersusCodesItem";
 import styles from "./vsScreen.module.css";
 
 const REQUIRED_LETTERS = ["q", "w", "e", "r", "t", "y"];
+const winnerCodes = ['311111', '321111', '112111']
 
 export default function VersusCodes() {
   const icons = REQUIRED_LETTERS.map((item) => ({ id: item, iconIdx: 0 }));
   const [selectedIcons, setSelectedIcons] = useState(icons);
+  const [code, setCode] = useState('')
+ const sound = useRef(new Audio("/public/sound/mortal_kombat_sms.mp3"));
+
+  const newCode = selectedIcons.map(item => versusCodesSymbols[item.iconIdx].id).join('')
+  if(winnerCodes.includes(newCode)) {
+    setCode(newCode)
+    sound.current.play()
+  }
 
   const keyDownHandler = useCallback(
     (e) => {
@@ -55,7 +64,7 @@ export default function VersusCodes() {
             ))
         }
       </div> 
-      <VersusCodesPopup />
+      <VersusCodesPopup code={code} />
     </Fragment>
   );
 }
