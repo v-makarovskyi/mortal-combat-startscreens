@@ -7,12 +7,12 @@ import styles from "./vsScreen.module.css";
 export default function VsScreen() {
   const { selectedPlayers, setActiveScreen } = useContext(MainContext);
 
- /*  useEffect(() => {
+ useEffect(() => {
     let timer = setTimeout(() => {
       setActiveScreen(0);
     }, 4000);
     return () => clearTimeout(timer);
-  }, [setActiveScreen]); */
+  }, [setActiveScreen]); 
 
   return (
     <div className={styles.wrapper}>
