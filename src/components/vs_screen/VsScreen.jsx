@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import SelectedCharacters from "../SelectedCharacters";
 import { MainContext } from "../../context/mainContext";
+import VersusCodes from "./VersusCodes";
 import styles from "./vsScreen.module.css";
 
 export default function VsScreen() {
   const { selectedPlayers, setActiveScreen } = useContext(MainContext);
-  console.log(selectedPlayers)
 
  /*  useEffect(() => {
     let timer = setTimeout(() => {
@@ -30,6 +30,7 @@ export default function VsScreen() {
                 right: styles.player_two,
               }} 
             />
+            <VersusCodes />
         </div>
     </div>
   )
